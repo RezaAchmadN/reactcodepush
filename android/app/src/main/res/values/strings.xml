@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">reactcodepush</string>
+    <string moduleConfig="true" name="CodePushDeploymentKey">HSS6U3d_kU1_LnJzWZ7y0zbPYeNIrvDuZun_S</string>
+</resources>
