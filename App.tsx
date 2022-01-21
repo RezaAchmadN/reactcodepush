@@ -18,6 +18,7 @@ import {
   Text,
   useColorScheme,
   View,
+  Platform,
 } from 'react-native';
 
 import {
@@ -28,8 +29,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import codePush from "react-native-code-push";
-
+import codePush from 'react-native-code-push';
 
 const Section: React.FC<{
   title: string;
@@ -97,11 +97,24 @@ const App = () => {
   );
 };
 
-let codePushOptions = { 
-  deploymentKey: "HSS6U3d_kU1_LnJzWZ7y0zbPYeNIrvDuZun_S", //staging
-  // deploymentKey: "m8SRoZPxGp4xYAgcAXR7V7euSUfwtFvhW13ZE", //production
-  checkFrequency: codePush.CheckFrequency.ON_APP_RESUME, 
-  installMode: codePush.InstallMode.ON_NEXT_RESUME 
+const isProduction = false;
+
+const deploymentKey_stagging =
+  Platform.OS === 'ios'
+    ? 'HSS6U3d_kU1_LnJzWZ7y0zbPYeNIrvDuZun_S'
+    : '6TJW0uoxkEEgbsZNazZfYbdtQR_i31MggXiXd';
+
+const deploymentKey_production =
+  Platform.OS === 'ios'
+    ? 'm8SRoZPxGp4xYAgcAXR7V7euSUfwtFvhW13ZE'
+    : 'XVaJYGRZP_rFzdiT2XdeuBLBgtqIKbwS4NogX';
+
+let codePushOptions = {
+  deploymentKey: isProduction
+    ? deploymentKey_stagging
+    : deploymentKey_production,
+  checkFrequency: codePush.CheckFrequency.ON_APP_RESUME,
+  installMode: codePush.InstallMode.ON_NEXT_RESUME,
 };
 
 const APP = codePush(codePushOptions)(App);
