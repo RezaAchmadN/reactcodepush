@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">reactcodepush</string>
     <string moduleConfig="true" name="CodePushDeploymentKey">HSS6U3d_kU1_LnJzWZ7y0zbPYeNIrvDuZun_S</string>
+    <string name="appCenterAnalytics_whenToEnableAnalytics" moduleConfig="true" translatable="false">ALWAYS_SEND</string>
+    <string name="appCenterCrashes_whenToSendCrashes" moduleConfig="true" translatable="false">DO_NOT_ASK_JAVASCRIPT</string>
 </resources>

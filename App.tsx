@@ -45,7 +45,7 @@ let codePushOptions = {
    ? deploymentKey_production
    : deploymentKey_stagging,
   checkFrequency: codePush.CheckFrequency.ON_APP_RESUME,
-  installMode: codePush.InstallMode.ON_NEXT_RESUME,
+  installMode: codePush.InstallMode.IMMEDIATE,
 };
 
 const Section: React.FC<{
@@ -111,6 +111,7 @@ const App = () => {
         break;
       case codePush.SyncStatus.UPDATE_INSTALLED:
         console.log({ syncMessage: "Update installed and will be applied on restart.", progress: false });
+        codePush.restartApp()
         setStatus("Update installed and will be applied on restart.")
         break;
       case codePush.SyncStatus.UNKNOWN_ERROR:
@@ -150,7 +151,7 @@ const App = () => {
             {status}
           </Section>
           <Section title="Changes">
-            <Text style={styles.highlight}>Updated textppp</Text>
+            <Text style={styles.highlight}>Smartfren is <b>the best</b></Text>
           </Section>
         </View>
       </ScrollView>
