@@ -151,7 +151,7 @@ const App = () => {
             {status}
           </Section>
           <Section title="Changes">
-            <Text style={styles.highlight}>Smartfren is <b>the best</b></Text>
+            <Text style={styles.highlight}>My name is Reza Achmad</Text>
           </Section>
         </View>
       </ScrollView>
